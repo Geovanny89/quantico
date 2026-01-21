@@ -1,7 +1,11 @@
+'use client'
+
 import Link from "next/link"
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react"
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="relative bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800/50 transition-colors duration-300">
       
@@ -18,13 +22,13 @@ export default function Footer() {
               Garantizamos la continuidad operativa de su tecnología con estándares internacionales.
             </p>
             <div className="flex gap-3">
-              <SocialIcon icon={<Linkedin size={18} />} href="#" />
+        
               <SocialIcon icon={<Instagram size={18} />} href="#" />
               <SocialIcon icon={<Facebook size={18} />} href="#" />
             </div>
           </div>
 
-          {/* Columna 2: Navegación */}
+          {/* Columna 2: Plataforma (Ahora con enlaces legales) */}
           <div className="lg:col-span-2">
             <h4 className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-[0.2em] mb-6">
               Plataforma
@@ -32,8 +36,9 @@ export default function Footer() {
             <ul className="space-y-4">
               <FooterLink href="/">Inicio</FooterLink>
               <FooterLink href="/servicios">Servicios</FooterLink>
-              <FooterLink href="/productos">Productos</FooterLink>
               <FooterLink href="/quienes-somos">Nosotros</FooterLink>
+              <FooterLink href="/privacidad">Privacidad</FooterLink>
+              <FooterLink href="/terminos">Términos</FooterLink>
             </ul>
           </div>
 
@@ -43,7 +48,6 @@ export default function Footer() {
               Especialidades
             </h4>
             <ul className="space-y-4">
-              <FooterLink href="/servicios/mantenimiento">Mantenimiento Preventivo</FooterLink>
               <FooterLink href="/servicios/calibracion">Calibración Metrológica</FooterLink>
               
             </ul>
@@ -57,7 +61,10 @@ export default function Footer() {
             <ul className="space-y-4 text-sm">
               <li className="flex gap-3 items-start">
                 <MapPin size={18} className="text-blue-600 shrink-0" />
-                <span className="text-slate-600 dark:text-slate-300">Cúcuta, Colombia <br /> <span className="text-slate-400 italic text-[11px]">Cobertura Nacional</span></span>
+                <span className="text-slate-600 dark:text-slate-300">
+                  Cúcuta, Colombia <br /> 
+                  <span className="text-slate-400 italic text-[11px]">Cobertura Nacional</span>
+                </span>
               </li>
               <li className="flex gap-3 items-center">
                 <Phone size={18} className="text-blue-600 shrink-0" />
@@ -65,7 +72,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center">
                 <Mail size={18} className="text-blue-600 shrink-0" />
-                <span className="font-semibold text-slate-700 dark:text-slate-200">contacto@quantico.com</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-200 text-xs md:text-sm">info@quanticotec.com</span>
               </li>
             </ul>
             <div className="mt-8">
@@ -76,13 +83,10 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Línea inferior */}
-        <div className="border-t border-slate-200 dark:border-slate-900 mt-20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] md:text-xs text-slate-400 dark:text-slate-600 font-medium">
-          <p>© {new Date().getFullYear()} Quantico Tecnología. Todos los derechos reservados.</p>
-          <div className="flex gap-6 uppercase tracking-widest">
-            <Link href="/privacidad" className="hover:text-blue-600 transition-colors">Privacidad</Link>
-            <Link href="/terminos" className="hover:text-blue-600 transition-colors">Términos</Link>
-          </div>
+        {/* Línea inferior: Centrada y Minimalista */}
+        <div className="border-t border-slate-200 dark:border-slate-900 mt-20 pt-8 flex flex-col items-center justify-center text-center gap-4 text-[11px] md:text-xs text-slate-400 dark:text-slate-600 font-medium uppercase tracking-[0.1em]">
+          <p>© {currentYear} Quantico Tecnología. Todos los derechos reservados.</p>
+          <p className="normal-case italic text-[10px]">Ingeniería de precisión para el sector salud.</p>
         </div>
       </div>
     </footer>

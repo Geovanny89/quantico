@@ -23,7 +23,6 @@ export default function Navbar() {
   }, [open])
 
   const subServices = [
-    { name: 'Mantenimiento Preventivo', href: '/servicios/mantenimiento' },
     { name: 'Servicio de Calibración', href: '/servicios/calibracion' },
   ]
 
@@ -120,7 +119,7 @@ export default function Navbar() {
                   </div>
                 </li>
 
-                <MobileLink href="/productos" onClick={() => setOpen(false)}>Productos</MobileLink>
+                
               </ul>
             </div>
 
@@ -161,7 +160,7 @@ export default function Navbar() {
               </div>
             </li>
 
-            <NavLink href="/productos">Productos</NavLink>
+          
             <NavLink href="/quienes-somos">Quiénes Somos</NavLink>
 
             <li className="ml-4 flex items-center gap-4 border-l pl-4">
