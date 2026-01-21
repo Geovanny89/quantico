@@ -1,10 +1,16 @@
 'use client'
 
 import Link from "next/link"
-import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react"
+import { Mail, Phone, MapPin, Facebook, Instagram, ArrowRight } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  // URLs de redes sociales actualizadas
+  const socialLinks = {
+    facebook: "https://www.facebook.com/quantico.tecnologia.7",
+    instagram: "https://www.instagram.com/quantico_tecnologia"
+  };
 
   return (
     <footer className="relative bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800/50 transition-colors duration-300">
@@ -22,13 +28,12 @@ export default function Footer() {
               Garantizamos la continuidad operativa de su tecnología con estándares internacionales.
             </p>
             <div className="flex gap-3">
-        
-              <SocialIcon icon={<Instagram size={18} />} href="#" />
-              <SocialIcon icon={<Facebook size={18} />} href="#" />
+              <SocialIcon icon={<Instagram size={18} />} href={socialLinks.instagram} />
+              <SocialIcon icon={<Facebook size={18} />} href={socialLinks.facebook} />
             </div>
           </div>
 
-          {/* Columna 2: Plataforma (Ahora con enlaces legales) */}
+          {/* Columna 2: Plataforma */}
           <div className="lg:col-span-2">
             <h4 className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-[0.2em] mb-6">
               Plataforma
@@ -49,7 +54,6 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <FooterLink href="/servicios/calibracion">Calibración Metrológica</FooterLink>
-              
             </ul>
           </div>
 
@@ -72,7 +76,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 items-center">
                 <Mail size={18} className="text-blue-600 shrink-0" />
-                <span className="font-semibold text-slate-700 dark:text-slate-200 text-xs md:text-sm">info@quanticotec.com</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-200 text-xs md:text-sm">jeyssonsg@quanticotec.com</span>
               </li>
             </ul>
             <div className="mt-8">
@@ -83,10 +87,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Línea inferior: Centrada y Minimalista */}
-        <div className="border-t border-slate-200 dark:border-slate-900 mt-20 pt-8 flex flex-col items-center justify-center text-center gap-4 text-[11px] md:text-xs text-slate-400 dark:text-slate-600 font-medium uppercase tracking-[0.1em]">
+        {/* Línea inferior: Centrada y Minimalista con Crédito */}
+        <div className="border-t border-slate-200 dark:border-slate-900 mt-20 pt-8 flex flex-col items-center justify-center text-center gap-2 text-[11px] md:text-xs text-slate-400 dark:text-slate-600 font-medium uppercase tracking-[0.1em]">
           <p>© {currentYear} Quantico Tecnología. Todos los derechos reservados.</p>
-          <p className="normal-case italic text-[10px]">Ingeniería de precisión para el sector salud.</p>
+          <p className="normal-case font-normal opacity-70">
+            Ingeniería de precisión para el sector salud.
+            
+          </p>
         </div>
       </div>
     </footer>
@@ -111,6 +118,8 @@ function SocialIcon({ icon, href }) {
   return (
     <a 
       href={href} 
+      target="_blank"
+      rel="noopener noreferrer"
       className="w-10 h-10 flex items-center justify-center rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-400 hover:text-blue-600 hover:border-blue-600 dark:hover:text-white dark:hover:bg-blue-600 transition-all duration-300 shadow-sm"
     >
       {icon}

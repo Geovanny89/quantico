@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from "lucide-react"
 export default function Contacto() {
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+
     console.log("Formulario enviado")
   }
 
@@ -41,7 +41,7 @@ export default function Contacto() {
                 <ContactInfoItem
                   icon={<Mail />}
                   title="Correo Electrónico"
-                  detail="info@quanticotec.com"
+                  detail="jeyssonsg@quanticotec.com"
                   subDetail="Soporte técnico y ventas"
                 />
                 <ContactInfoItem
@@ -76,57 +76,57 @@ export default function Contacto() {
           <div className="lg:col-span-7">
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-12 rounded-[2.5rem] shadow-sm">
               <form onSubmit={handleSubmit} className="space-y-6">
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div className="space-y-2">
-      <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Nombre Completo</label>
-      <input
-        required // <--- AGREGADO
-        type="text"
-        placeholder="Ej: Juan Pérez"
-        className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all dark:text-white"
-      />
-    </div>
-    <div className="space-y-2">
-      <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Correo Electrónico</label>
-      <input
-        required // <--- AGREGADO
-        type="email"
-        placeholder="juan@empresa.com"
-        className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all dark:text-white"
-      />
-    </div>
-  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Nombre Completo</label>
+                    <input
+                      required // <--- AGREGADO
+                      type="text"
+                      placeholder="Ej: Juan Pérez"
+                      className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all dark:text-white"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Correo Electrónico</label>
+                    <input
+                      required // <--- AGREGADO
+                      type="email"
+                      placeholder="juan@empresa.com"
+                      className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all dark:text-white"
+                    />
+                  </div>
+                </div>
 
-  <div className="space-y-2">
-    <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Asunto / Servicio de Interés</label>
-    <select 
-      required // <--- AGREGADO
-      defaultValue="" 
-      className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all dark:text-white appearance-none"
-    >
-      <option value="" disabled>Seleccione una opción</option> {/* Opción vacía por defecto */}
-      <option value="calibracion">Calibración Metrológica</option>
-      <option value="otro">Otro</option>
-    </select>
-  </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Asunto / Servicio de Interés</label>
+                  <select
+                    required // <--- AGREGADO
+                    defaultValue=""
+                    className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all dark:text-white appearance-none"
+                  >
+                    <option value="" disabled>Seleccione una opción</option> {/* Opción vacía por defecto */}
+                    <option value="calibracion">Calibración Metrológica</option>
+                    <option value="otro">Otro</option>
+                  </select>
+                </div>
 
-  <div className="space-y-2">
-    <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Mensaje</label>
-    <textarea
-      required // <--- AGREGADO
-      rows="5"
-      placeholder="Cuéntanos sobre tu necesidad técnica..."
-      className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all dark:text-white resize-none"
-    ></textarea>
-  </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Mensaje</label>
+                  <textarea
+                    required // <--- AGREGADO
+                    rows="5"
+                    placeholder="Cuéntanos sobre tu necesidad técnica..."
+                    className="w-full px-5 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all dark:text-white resize-none"
+                  ></textarea>
+                </div>
 
-  <button
-    type="submit"
-    className="w-full py-5 bg-slate-900 dark:bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 dark:hover:bg-blue-500 flex items-center justify-center gap-3 transition-all shadow-lg shadow-blue-500/10"
-  >
-    Enviar Mensaje <Send size={18} />
-  </button>
-</form>
+                <button
+                  type="submit"
+                  className="w-full py-5 bg-slate-900 dark:bg-blue-600 text-white font-bold rounded-2xl hover:bg-blue-700 dark:hover:bg-blue-500 flex items-center justify-center gap-3 transition-all shadow-lg shadow-blue-500/10"
+                >
+                  Enviar Mensaje <Send size={18} />
+                </button>
+              </form>
             </div>
           </div>
 
