@@ -36,13 +36,13 @@ export default function Privacidad() {
           <PrivacySection 
             icon={<FileText className="text-blue-600" size={24} />}
             title="1. Recolección de Información"
-            content="Recopilamos únicamente los datos necesarios para la prestación de servicios de calibración y mantenimiento: nombre de contacto, NIT de la institución, correo corporativo, teléfono y la hoja de vida técnica de los equipos intervenidos."
+            content="Recopilamos únicamente los datos necesarios para la prestación de servicios de calibración : nombre de contacto, NIT de la institución, correo corporativo, teléfono y la hoja de vida técnica de los equipos intervenidos."
           />
 
           <PrivacySection 
             icon={<ShieldCheck className="text-blue-600" size={24} />}
             title="2. Finalidad del Tratamiento"
-            content="La información se utiliza exclusivamente para la emisión de certificados de calibración, recordatorios de mantenimiento preventivo, soporte técnico post-servicio y cumplimiento de normativas de salud vigentes."
+            content="La información se utiliza exclusivamente para la emisión de certificados de calibración y cumplimiento de normativas de salud vigentes."
           />
 
           <PrivacySection 
@@ -54,7 +54,7 @@ export default function Privacidad() {
           <PrivacySection 
             icon={<UserCheck className="text-blue-600" size={24} />}
             title="4. Derechos de Habeas Data"
-            content="Como titular, usted tiene derecho a conocer, actualizar o solicitar la supresión de sus datos de nuestra base de datos en cualquier momento, enviando una solicitud formal a info@quanticotec.com."
+            content="Como titular, usted tiene derecho a conocer, actualizar o solicitar la supresión de sus datos de nuestra base de datos en cualquier momento, enviando una solicitud formal a jeyssonsg@quanticotec.com."
           />
         </div>
 

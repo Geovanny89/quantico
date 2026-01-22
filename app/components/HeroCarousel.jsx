@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const images = [
   { src: '/c1.jpg', alt: 'Equipos biomédicos' },
@@ -26,10 +27,9 @@ export default function HeroCarousel() {
   const next = () => setIndex((index + 1) % images.length)
 
   return (
-    /* Reducimos la altura a 65vh para que se aprecie mejor el entorno */
     <div className="group relative h-[60vh] md:h-[65vh] w-full overflow-hidden rounded-3xl bg-slate-900 shadow-xl">
-      
-      {/* Imagen con Zoom suave */}
+
+      {/* Imagen fondo */}
       <div className="absolute inset-0 overflow-hidden">
         <Image
           key={images[index].src}
@@ -41,38 +41,59 @@ export default function HeroCarousel() {
         />
       </div>
 
-      {/* Overlay optimizado: Menos negro sólido, más degradado */}
-      <div className="absolute inset-0 bg-black/30 transition-opacity duration-700" />
+      {/* Overlays */}
+      <div className="absolute inset-0 bg-black/30" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
 
-      {/* Contenido con tamaños balanceados */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-6 z-10">
-        
-        <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tighter drop-shadow-lg">
-          QUANTICO
-        </h1>
-        
-        <h2 className="text-lg md:text-2xl font-bold mb-4 text-blue-400 tracking-[0.15em] uppercase drop-shadow-md">
-          El poder de la calidad
-        </h2>
-        
-        <p className="max-w-lg text-sm md:text-lg mb-8 text-slate-100 font-medium drop-shadow-sm leading-relaxed opacity-90">
-          Especialistas en equipos y servicios biomédicos de alta precisión
-        </p>
+      {/* CONTENIDO */}
+      <div className="absolute inset-0 z-10 flex items-center justify-center px-6 text-white">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 text-center md:text-left">
 
-        <a
-          href="/contacto"
-          className="
-            group/btn relative overflow-hidden rounded-full bg-blue-600 px-8 py-3 md:px-10 md:py-4 text-sm md:text-base font-bold 
-            hover:bg-blue-700 hover:shadow-lg transition-all active:scale-95
-          "
-        >
-          <span className="relative z-10">Contáctanos ahora</span>
-          <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300" />
-        </a>
+          {/* ✅ LOGO CON ANIMACIÓN */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+          >
+            <Image
+              src="/logo2.png"
+              alt="Quantico Logo"
+              width={160}
+              height={160}
+              priority
+              className="w-28 md:w-40 h-auto drop-shadow-2xl"
+            />
+          </motion.div>
+
+          {/* ❌ TEXTO SIN ANIMACIÓN */}
+          <div>
+            <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tighter drop-shadow-lg">
+              QUANTICO
+            </h1>
+
+            <h2 className="text-lg md:text-2xl font-bold mb-4 text-blue-400 tracking-[0.15em] uppercase drop-shadow-md">
+              El poder de la calidad
+            </h2>
+
+            <p className="max-w-lg text-sm md:text-lg mb-6 text-slate-100 font-medium leading-relaxed opacity-90">
+              Especialistas en equipos y servicios biomédicos de alta precisión
+            </p>
+
+            <a
+              href="https://wa.me/573167950366?text=Hola%20Quantico,%20necesito%20información%20sobre%20sus%20servicios%20biomédicos."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block relative overflow-hidden rounded-full bg-[#25D366] px-8 py-3 md:px-10 md:py-4 text-sm md:text-base font-bold 
+                         hover:bg-[#20ba5a] hover:shadow-lg transition-all active:scale-95"
+            >
+              Contáctanos ahora
+            </a>
+          </div>
+
+        </div>
       </div>
 
-      {/* Botones Flotantes más pequeños para no tapar */}
+      {/* Controles */}
       <button
         onClick={prev}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 rounded-full bg-black/20 backdrop-blur-sm p-2 text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-black/40"
@@ -87,13 +108,13 @@ export default function HeroCarousel() {
         <ChevronRight size={24} />
       </button>
 
-      {/* Dots más finos */}
+      {/* Dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
         {images.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`h-1 transition-all duration-500 rounded-full ${
+            className={`h-1 rounded-full transition-all duration-500 ${
               i === index ? 'w-8 bg-blue-500' : 'w-2 bg-white/40'
             }`}
           />

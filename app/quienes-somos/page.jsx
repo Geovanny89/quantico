@@ -1,32 +1,25 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
+import Image from "next/image";
 
 export default function QuienesSomos() {
   const equipo = [
     {
-      nombre: 'Jeysson Salazar',
-      cargo: 'Director Técnico',
-      empresa: 'Quantico Tecnología',
-      genero: 'm', // masculino
+      nombre: "Jeysson Salazar",
+      cargo: "Director Técnico",
+      empresa: "Quantico Tecnología",
+      foto: "/jgra.jpeg",
     },
     {
-      nombre: 'Natali Barragan',
-      cargo: 'Coordinadora de Mantenimiento',
-      empresa: 'Quantico Tecnología',
-      genero: 'f', // femenino
+      nombre: "Miguel Silva",
+      cargo: "Metrólogo",
+      empresa: "Quantico Tecnología",
+      foto: "/msilva.jpeg",
     },
-    {
-      nombre: 'Juan Carlos Valencia',
-      cargo: 'Metrólogo',
-      empresa: 'Quantico Tecnología',
-      genero: 'm', // masculino
-    },
-  ]
+  ];
 
   return (
     <main className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-500">
-
       {/* --- HERO --- */}
       <section className="relative py-24 px-6 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-500/10" />
@@ -35,24 +28,27 @@ export default function QuienesSomos() {
             ¿Quiénes Somos?
           </h1>
           <p className="text-slate-300 text-base md:text-xl leading-relaxed">
-            Somos una empresa joven orientada a la excelencia técnica y al acompañamiento estratégico
-            de nuestros clientes en el sector biomédico.
+            Somos una empresa joven orientada a la excelencia técnica y al
+            acompañamiento estratégico de nuestros clientes en el sector
+            biomédico.
           </p>
         </div>
       </section>
 
       {/* --- DESCRIPCIÓN --- */}
-      <section className="py-20 px-6 max-w-5xl mx-auto">
+      <section className="py-20 px-6 max-w-5xl mx-auto text-center">
         <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed mb-6">
-          Somos una empresa joven, fundada con el firme propósito de convertirnos en el gran aliado
-          de nuestros clientes, proveyendo servicios de calidad basados en el conocimiento y la amplia
+          Somos una empresa joven, fundada con el firme propósito de
+          convertirnos en el gran aliado de nuestros clientes, proveyendo
+          servicios de calidad basados en el conocimiento y la amplia
           experiencia de nuestro personal.
         </p>
 
         <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed">
-          Nuestro equipo se encuentra en constante capacitación y actualización, lo que nos permite
-          estar a la vanguardia en nuevas tecnologías orientadas al área biomédica, brindando soluciones
-          en metrología, tecnovigilancia, habilitaciones, mantenimiento y suministro de equipos biomédicos.
+          Nuestro equipo se encuentra en constante capacitación y actualización,
+          lo que nos permite estar a la vanguardia en nuevas tecnologías
+          orientadas al área biomédica, brindando soluciones en metrología,
+          tecnovigilancia, habilitaciones.
         </p>
       </section>
 
@@ -63,19 +59,49 @@ export default function QuienesSomos() {
             Nuestro Equipo
           </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Cambio clave aquí: justify-center para que si hay 2 se centren en la pantalla */}
+          <div className="
+  grid 
+  grid-cols-1 
+  sm:grid-cols-2 
+  lg:grid-cols-2 
+  gap-8 
+  justify-center
+  place-content-center
+">
             {equipo.map((p) => (
               <div
                 key={p.nombre}
-                className="group bg-white dark:bg-slate-900 rounded-3xl p-8 text-center border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 transition-all shadow-sm"
+                className="
+        group w-full max-w-sm mx-auto
+        bg-white dark:bg-slate-900
+        rounded-3xl p-8 text-center
+        border border-slate-200 dark:border-slate-800
+        hover:border-blue-500/40
+        transition-all duration-300
+        shadow-sm hover:shadow-lg
+      "
               >
                 {/* Avatar */}
-                <div className="mx-auto mb-6 w-28 h-28 relative rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800">
+                <div className="
+        mx-auto mb-6 w-28 h-28 relative
+        rounded-full overflow-hidden
+        bg-slate-200 dark:bg-slate-800
+        ring-2 ring-transparent
+        group-hover:ring-blue-500/40
+        transition-all duration-500
+      ">
                   <Image
-                    src={p.genero === 'f' ? '/avtar2.png' : '/avtar1.png'}
+                    src={p.foto}
                     alt={p.nombre}
                     fill
-                    className="object-cover"
+                    sizes="112px"
+                    priority
+                    className="
+            object-cover object-center
+            transition-transform duration-500
+            group-hover:scale-110
+          "
                   />
                 </div>
 
@@ -93,9 +119,9 @@ export default function QuienesSomos() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
-
     </main>
-  )
+  );
 }

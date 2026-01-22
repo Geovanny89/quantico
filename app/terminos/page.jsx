@@ -33,7 +33,7 @@ export default function Terminos() {
           <TermSection 
             icon={<FileText size={22} />}
             title="1. Uso del Sitio Técnico"
-            content="Este portal está diseñado para proporcionar información sobre servicios de metrología, calibración y mantenimiento preventivo/correctivo de equipos biomédicos. El usuario se compromete a utilizar la información aquí contenida de manera lícita y profesional."
+            content="Este portal está diseñado para proporcionar información sobre servicios de metrología, calibración de equipos biomédicos. El usuario se compromete a utilizar la información aquí contenida de manera lícita y profesional."
           />
 
           <TermSection 
