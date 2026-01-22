@@ -88,7 +88,6 @@ export default function Contacto() {
                     <option value="" disabled>Seleccione una opción</option>
                     <option value="ventas">Información de Productos</option>
                     <option value="cotizacion">Solicitar Cotización</option>
-                    <option value="vendedor">Quiero ser Vendedor</option>
                     <option value="otro">Otro</option>
                   </select>
                 </div>
