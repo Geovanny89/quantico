@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link"
-import { Mail, Phone, MapPin, Facebook, Instagram, ArrowRight } from "lucide-react"
+import { Mail, Phone, MapPin, Facebook, Instagram, ArrowRight, Globe } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -14,10 +14,27 @@ export default function Footer() {
   return (
     <footer className="relative bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-800/50 transition-colors duration-300">
       
+      {/* ================= ENCABEZADO DE UBICACIÓN ================= */}
+      <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 text-blue-600 dark:text-blue-500">
+            <Globe size={18} className="animate-pulse" />
+            <span className="text-xs font-black uppercase tracking-[0.3em]">Localización</span>
+          </div>
+          <h2 className="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">
+            Nuestra Sede <span className="text-blue-600">Principal</span>
+          </h2>
+        </div>
+        <div className="flex items-center gap-3 text-sm font-medium text-slate-500">
+          <MapPin size={16} className="text-blue-600" />
+          <span>Calle 16 #7-26, Cúcuta, Colombia</span>
+        </div>
+      </div>
+
       {/* ================= SECCIÓN DEL MAPA ================= */}
-      <section className="w-full h-[450px] relative border-b border-slate-200 dark:border-slate-800">
+      <section className="w-full h-[400px] relative border-y border-slate-200 dark:border-slate-800">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.144763137682!2d-72.50577772412808!3d7.880951605937171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6645999827051f%3A0xc3d2950942485554!2sCl.%2016%20%237-26%2C%20C%C3%BAcuta%2C%20Norte%20de%20Santander!5e0!3m2!1ses!2sco!4v1709100000000!5m2!1ses!2sco"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.123456789!2d-72.5074!3d7.8891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwNTMnMjAuOCJOIDcywrAzMCcyNi42Ilc!5e0!3m2!1ses!2sco!4v123456789" 
           width="100%"
           height="100%"
           style={{ border: 0 }}
@@ -46,7 +63,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Plataforma (Manteniendo tus enlaces originales aquí) */}
+          {/* Plataforma */}
           <div className="lg:col-span-2">
             <h4 className="text-xs font-black text-slate-900 dark:text-white uppercase tracking-[0.2em] mb-6">
               Plataforma
@@ -82,6 +99,9 @@ export default function Footer() {
               <li className="flex gap-3 items-start">
                 <MapPin size={18} className="text-blue-600 shrink-0 mt-1" />
                 <div className="text-slate-600 dark:text-slate-300">
+                  <span className="font-bold block text-slate-900 dark:text-white mb-0.5 tracking-wide uppercase">
+                    QUANTICOTEC
+                  </span>
                   Calle 16 #7-26, Cúcuta <br />
                   <span className="text-slate-400 italic text-[11px]">
                     Norte de Santander · Cobertura Nacional
@@ -116,7 +136,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Línea inferior (Solo copyright y frase, como lo tenías) */}
+        {/* Línea inferior */}
         <div className="border-t border-slate-200 dark:border-slate-900 mt-20 pt-8 flex flex-col items-center justify-center text-center gap-2 text-[11px] md:text-xs text-slate-400 dark:text-slate-600 font-medium uppercase tracking-[0.1em]">
           <p>© {currentYear} Quantico Tecnología. Todos los derechos reservados.</p>
           <p className="normal-case font-normal opacity-70">
