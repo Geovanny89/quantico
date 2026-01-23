@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronRight, ChevronDown } from 'lucide-react' 
-import Logo from '../assets/logo.png'
+import { Menu, X, ChevronRight, ChevronDown } from 'lucide-react'
 import ThemeToggle from './ThemeToggle'
 
 export default function Navbar() {
@@ -34,24 +33,26 @@ export default function Navbar() {
       <header
         className={`
           fixed top-0 left-0 w-full z-[100] transition-all duration-300
-          ${scrolled 
-            ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg py-2' 
+          ${scrolled
+            ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg py-2'
             : 'bg-white dark:bg-slate-900 py-4'}
           border-b border-slate-200 dark:border-slate-800
         `}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6">
-          
+
           {/* LOGO */}
           <Link href="/" className="transition-transform hover:scale-105 active:scale-95">
             <Image
-              src={Logo}
+              src="/logo.webp"
               alt="Quantico Tecnología"
               width={120}
               height={40}
-              className="object-contain dark:brightness-110"
               priority
+              sizes="120px"
+              className="object-contain dark:brightness-110"
             />
+
           </Link>
 
           {/* BOTÓN MOBILE */}
@@ -119,7 +120,7 @@ export default function Navbar() {
                   </div>
                 </li>
 
-                
+
               </ul>
             </div>
 
@@ -160,7 +161,7 @@ export default function Navbar() {
               </div>
             </li>
 
-          
+
             <NavLink href="/quienes-somos">Quiénes Somos</NavLink>
 
             <li className="ml-4 flex items-center gap-4 border-l pl-4">
