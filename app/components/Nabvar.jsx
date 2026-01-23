@@ -12,10 +12,22 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  let ticking = false
+
+  const handleScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 10)
+        ticking = false
+      })
+      ticking = true
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  return () => window.removeEventListener('scroll', handleScroll)
+}, [])
+
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : 'unset'

@@ -1,9 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const images = [
   { src: '/c1.webp', alt: 'Equipos biomédicos' },
@@ -13,33 +13,51 @@ const images = [
   { src: '/c5.webp', alt: 'Soporte técnico especializado' }
 ]
 
-
 export default function HeroCarousel() {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length)
+      setIndex((i) => (i + 1) % images.length)
     }, 5000)
+
     return () => clearInterval(interval)
   }, [])
 
-  const prev = () => setIndex(index === 0 ? images.length - 1 : index - 1)
-  const next = () => setIndex((index + 1) % images.length)
+  const prev = useCallback(
+    () => setIndex((i) => (i === 0 ? images.length - 1 : i - 1)),
+    []
+  )
+
+  const next = useCallback(
+    () => setIndex((i) => (i + 1) % images.length),
+    []
+  )
 
   return (
     <div className="group relative h-[60vh] md:h-[65vh] w-full overflow-hidden rounded-3xl bg-slate-900 shadow-xl">
 
       {/* Imagen fondo */}
-      <div className="absolute inset-0 overflow-hidden">
-        <Image
-          key={images[index].src}
-          src={images[index].src}
-          alt={images[index].alt}
-          fill
-          priority
-          className="object-cover transition-all duration-[2000ms] ease-out scale-100 group-hover:scale-110"
-        />
+      <div className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={images[index].src}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: 'easeOut' }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={images[index].src}
+              alt={images[index].alt}
+              fill
+              sizes="100vw"
+              className="object-cover"
+              priority={index === 0}
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Overlays */}
@@ -48,16 +66,16 @@ export default function HeroCarousel() {
 
       {/* CONTENIDO */}
       <div className="absolute inset-0 z-10 flex items-center justify-center px-6 text-white">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 text-center md:text-left">
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
 
-          {/* ✅ LOGO CON ANIMACIÓN */}
+          {/* LOGO */}
           <motion.div
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
           >
             <Image
-              src="/logo2.png"
+              src="/logo2.webp"
               alt="Quantico Logo"
               width={160}
               height={160}
@@ -66,7 +84,7 @@ export default function HeroCarousel() {
             />
           </motion.div>
 
-          {/* ❌ TEXTO SIN ANIMACIÓN */}
+          {/* TEXTO */}
           <div>
             <h1 className="text-4xl md:text-6xl font-black mb-2 tracking-tighter drop-shadow-lg">
               QUANTICO
@@ -84,27 +102,26 @@ export default function HeroCarousel() {
               href="https://wa.me/573167950366?text=Hola%20Quantico,%20necesito%20información%20sobre%20sus%20servicios%20biomédicos."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block relative overflow-hidden rounded-full bg-[#25D366] px-8 py-3 md:px-10 md:py-4 text-sm md:text-base font-bold 
+              className="inline-block rounded-full bg-[#25D366] px-8 py-3 md:px-10 md:py-4 text-sm md:text-base font-bold 
                          hover:bg-[#20ba5a] hover:shadow-lg transition-all active:scale-95"
             >
               Contáctanos ahora
             </a>
           </div>
-
         </div>
       </div>
 
       {/* Controles */}
       <button
         onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 rounded-full bg-black/20 backdrop-blur-sm p-2 text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-black/40"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 rounded-full bg-black/30 p-2 text-white opacity-0 group-hover:opacity-100 transition"
       >
         <ChevronLeft size={24} />
       </button>
 
       <button
         onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 rounded-full bg-black/20 backdrop-blur-sm p-2 text-white opacity-0 group-hover:opacity-100 transition-all hover:bg-black/40"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 rounded-full bg-black/30 p-2 text-white opacity-0 group-hover:opacity-100 transition"
       >
         <ChevronRight size={24} />
       </button>
@@ -115,7 +132,7 @@ export default function HeroCarousel() {
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`h-1 rounded-full transition-all duration-500 ${
+            className={`h-1 rounded-full transition-all ${
               i === index ? 'w-8 bg-blue-500' : 'w-2 bg-white/40'
             }`}
           />
