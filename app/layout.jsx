@@ -6,7 +6,8 @@ import WhatsAppButton from './components/WhatsAppButton'
 
 export const metadata = {
   title: 'Quantico Tecnología | Servicios Biomédicos',
-  description: 'Mantenimiento, calibración y venta de equipos biomédicos de alta precisión.',
+  description:
+    'Mantenimiento, calibración y venta de equipos biomédicos de alta precisión.',
 }
 
 export const viewport = {
@@ -18,6 +19,16 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" suppressHydrationWarning className="scroll-smooth">
+      <head>
+        {/* ✅ Preload SOLO de la imagen LCP */}
+        <link
+          rel="preload"
+          as="image"
+          href="/c1.webp"
+          fetchpriority="high"
+        />
+      </head>
+
       <body
         className="
           min-h-screen
@@ -29,13 +40,16 @@ export default function RootLayout({ children }) {
         "
       >
         <ThemeProvider>
-          {/* Navbar */}
+          {/* Navbar (no afecta LCP) */}
           <Navbar />
 
           <div className="flex flex-col min-h-screen">
+            {/* CONTENIDO PRINCIPAL */}
             <main className="flex-grow">
               {children}
             </main>
+
+            {/* Elementos no críticos */}
             <WhatsAppButton />
             <Footer />
           </div>

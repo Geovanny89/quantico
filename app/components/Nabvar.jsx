@@ -56,14 +56,16 @@ export default function Navbar() {
           {/* LOGO */}
           <Link href="/" className="transition-transform hover:scale-105 active:scale-95">
             <Image
-              src="/logo.webp"
-              alt="Quantico Tecnología"
-              width={120}
-              height={40}
-              priority
-              sizes="120px"
-              className="object-contain dark:brightness-110"
-            />
+  src="/logo.webp"
+  alt="Quantico Tecnología"
+  width={120}
+  height={40}
+  sizes="120px"
+  quality={60}
+  loading="lazy"
+  className="object-contain dark:brightness-110"
+/>
+
 
           </Link>
 
