@@ -6,12 +6,13 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const images = [
-  { src: '/c1.jpg', alt: 'Equipos biomédicos' },
-  { src: '/cp7.jpg', alt: 'Mantenimiento médico' },
-  { src: '/c3.jpg', alt: 'Tecnología hospitalaria' },
-  { src: '/c4.jpg', alt: 'Calibración certificada' },
-  { src: '/c5.jpg', alt: 'Soporte técnico especializado' }
+  { src: '/c1.webp', alt: 'Equipos biomédicos' },
+  { src: '/cp7.webp', alt: 'Mantenimiento médico' },
+  { src: '/c3.webp', alt: 'Tecnología hospitalaria' },
+  { src: '/c4.webp', alt: 'Calibración certificada' },
+  { src: '/c5.webp', alt: 'Soporte técnico especializado' }
 ]
+
 
 export default function HeroCarousel() {
   const [index, setIndex] = useState(0)

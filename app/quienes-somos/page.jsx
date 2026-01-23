@@ -8,13 +8,13 @@ export default function QuienesSomos() {
       nombre: "Jeysson Salazar",
       cargo: "Director Técnico",
       empresa: "Quantico Tecnología",
-      foto: "/jgra.jpeg",
+      foto: "/jgra.webp",
     },
     {
       nombre: "Miguel Silva",
       cargo: "Metrólogo",
       empresa: "Quantico Tecnología",
-      foto: "/msilva.jpeg",
+      foto: "/msilva.webp",
     },
   ];
 

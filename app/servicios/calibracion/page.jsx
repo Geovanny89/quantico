@@ -38,42 +38,42 @@ export default function ServicioCalibracion() {
   {
     nombre: 'Básculas',
     desc: 'Verificación de peso, repetibilidad y exactitud',
-    img: '/bsacu.png',
+    img: '/bsacu.webp',
   },
   {
     nombre: 'Pesas Bebés',
     desc: 'Verificación de peso, repetibilidad y exactitud',
-    img: '/pesa.png',
+    img: '/pesa.webp',
   },
   {
     nombre: 'Desfibriladores',
     desc: 'Energía de descarga, sincronía y tiempos',
-    img: '/desfri.png',
+    img: '/desfri.webp',
   },
   {
     nombre: 'Termómetros',
     desc: 'Temperatura, presión arterial y humedad',
-    img: '/termometro.png',
+    img: '/termometro.webp',
   },
    {
     nombre: 'Tensiometros',
     desc: 'Temperatura, presión arterial y humedad',
-    img: '/tensiome.png',
+    img: '/tensiome.webp',
   },
    {
     nombre: 'Termohigrómetros',
     desc: 'Temperatura, presión arterial y humedad',
-    img: '/termohi.png',
+    img: '/termohi.webp',
   },
   {
     nombre: 'Electrocardiógrafos',
     desc: 'Exactitud de señal, tiempo y amplitud',
-    img: '/electro.png',
+    img: '/electro.webp',
   },
   {
     nombre: 'Monitores de Signos Vitales',
     desc: 'ECG, SpO₂, presión no invasiva, temperatura',
-    img: '/signos.png',
+    img: '/signos.webp',
   },
 ]
 
